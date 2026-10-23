@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Report a security vulnerability (private)
+    url: https://github.com/cavaleiro-ai/cavaleiro-learning-agent/security/advisories/new
+    about: Report vulnerabilities privately, never in a public issue. Read SECURITY.md for scope first.
+  - name: 📖 Read the README and the Portuguese guide
+    url: https://github.com/cavaleiro-ai/cavaleiro-learning-agent/blob/main/docs/cavaleiro/GUIA-PT-BR.md
+    about: Installation, configuration, and troubleshooting, step by step.
+  - name: 🤝 Read the contributing guide
+    url: https://github.com/cavaleiro-ai/cavaleiro-learning-agent/blob/main/CONTRIBUTING.md
+    about: How to set up the development environment, run the tests, and open a pull request.

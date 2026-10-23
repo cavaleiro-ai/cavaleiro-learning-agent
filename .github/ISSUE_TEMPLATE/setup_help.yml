@@ -1,0 +1,106 @@
+name: "🔧 Setup / Installation Help"
+description: Having trouble installing or configuring Cavaleiro Learning Agent? Ask here.
+title: "[Setup]: "
+labels: ["setup"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sorry you're having trouble! Please fill out the details below so we can help.
+
+        **Quick checks first:**
+        - Run `hermes doctor` and include what it reports
+        - Run `hermes debug share --local`, read the output, and paste the relevant parts below (without `--local` it uploads the report to a public paste service)
+        - Pull the latest `main` of this repository and run the setup script again
+        - Check the [troubleshooting section of the Portuguese guide](https://github.com/cavaleiro-ai/cavaleiro-learning-agent/blob/main/docs/cavaleiro/GUIA-PT-BR.md#solução-de-problemas)
+        - Never paste API keys, tokens, or the contents of `.env`
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's Going Wrong?
+      description: Describe what you're trying to do and where it fails.
+      placeholder: |
+        I ran `hermes setup` and selected Nous Portal, but when I try to
+        start the gateway I get...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps Taken
+      description: What did you do? Include the exact commands you ran.
+      placeholder: |
+        1. Ran the install script: `curl -fsSL ... | bash`
+        2. Ran `hermes setup` and chose "Quick setup"
+        3. Selected OpenRouter, entered API key
+        4. Ran `hermes chat` and got error...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Installation Method
+      options:
+        - Clone + setup-hermes.sh (Linux/macOS/WSL2)
+        - Clone + setup-hermes.ps1 (Windows)
+        - Manual clone + uv / PM test environment
+        - Docker
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: Ubuntu 24.04 / macOS 15.2 / Windows 11
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: Output of `python --version` (or `python3 --version`)
+      placeholder: "3.11.9"
+
+  - type: input
+    id: hermes-version
+    attributes:
+      label: Version
+      description: Output of `hermes version` (if install got that far) and `git rev-parse --short HEAD` in your clone
+      placeholder: "Cavaleiro Learning Agent 1.0.0 (abc1234)"
+
+  - type: textarea
+    id: debug-report
+    attributes:
+      label: Debug Report
+      description: |
+        Run `hermes debug share --local`, read the output, and paste the relevant parts here.
+        If install didn't get that far, run `hermes doctor` and paste that output instead.
+        (`hermes debug share` without `--local` uploads the report to a public paste service.)
+      placeholder: |
+        hermes doctor / hermes debug share --local output
+      render: shell
+
+  - type: textarea
+    id: error-output
+    attributes:
+      label: Full Error Output
+      description: Paste the complete error message or traceback. This will be auto-formatted.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: What I've Already Tried
+      description: List any fixes or workarounds you've already attempted.
+      placeholder: |
+        - Ran `hermes update`
+        - Tried reinstalling with `pip install -e ".[all]"`
+        - Checked that OPENROUTER_API_KEY is set in ~/.hermes/.env
